@@ -15,7 +15,7 @@
  */
 define("HOST", "localhost");
 define("DBNAME", "meas5");
-define("DBLOGIN", "meas5");
+define("DBLOGIN", "meas");
 define("DBPWD", "meas5");
 
 
