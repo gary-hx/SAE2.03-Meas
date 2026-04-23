@@ -13,9 +13,9 @@
 }
 
 .movie-poster {
-  width: 100%;
+  max-width: 350px;
   height: auto;
-  max-height: 300px;
+  max-height: 500px;
   object-fit: cover;
   border-radius: 4px;
 }
