@@ -16,6 +16,10 @@
   <script type="module">
     import { NavBar } from "./component/NavBar/script.js";
     import { Movie } from "./component/Movie/script.js";
+    import { DataMovie } from "./data/dataMovie.js";
+
+    // URL du serveur (doit correspondre à dataMovie.js)
+    const HOST_URL = "https://mmi.unilim.fr/~meas5/SAE2.03-Meas/";
 
     // Controleur
     // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
@@ -45,8 +49,9 @@
         movies.forEach(movie => {
           const imageUrl = HOST_URL + "/server/images/" + movie.image;
           const movieData = {
-            title: movie.title,
-            image: imageUrl
+            name: movie.name,
+            image: imageUrl,
+            year: movie.year
           };
           html += Movie.format(movieData);
         });
@@ -54,8 +59,8 @@
         html += '</div>';
         content.innerHTML = html;
       } catch (error) {
-        console.error("Erreur lors du chargement des films:", error);
-        content.innerHTML = '<p>Erreur de chargement des films</p>';
+        console.error("Aucun film disponible pour le moment.:", error);
+        content.innerHTML = '<p>Aucun film disponible pour le moment.</p>';
       }
     };
 
