@@ -40,28 +40,17 @@
     // Vue (contient tout ce qui est relatif à l'affichage)
     window.V = {};
 
-    V.renderMovies = async function () {
-      try {
-        const movies = await DataMovie.requestMovies();
-        let content = document.querySelector("#content");
-        let html = '<div class="movies-grid">';
+    V.renderMovies = function () {
+      let content = document.querySelector('#content');
 
-        movies.forEach(movie => {
-          const imageUrl = HOST_URL + "/server/images/" + movie.image;
-          const movieData = {
-            name: movie.name,
-            image: imageUrl,
-            year: movie.year
-          };
-          html += Movie.format(movieData);
+      DataMovie.requestMovies()
+        .then((movies) => {
+          content.innerHTML = Movie.formatMany(movies);
+        })
+        .catch((error) => {
+          console.error("Aucun film disponible pour le moment :", error);
+          content.innerHTML = '<p>Aucun film disponible pour le moment.</p>';
         });
-
-        html += '</div>';
-        content.innerHTML = html;
-      } catch (error) {
-        console.error("Aucun film disponible pour le moment.:", error);
-        content.innerHTML = '<p>Aucun film disponible pour le moment.</p>';
-      }
     };
 
     /**

@@ -7,7 +7,7 @@
 
 .movie-card {
   width: 100%;
-  max-width: 355px;
+  max-width: 400px;
   border: 1px solid #ffffff;
   border-radius: 8px;
   padding: 10px;
@@ -28,9 +28,4 @@
 .movie-name {
   font-size: 1.2em;
   margin: 10px 0 5px;
-}
-
-.movie-year {
-  color: #6b6b6b;
-  font-size: 0.9em;
 }
