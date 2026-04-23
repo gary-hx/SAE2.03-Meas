@@ -1,25 +1,29 @@
 .movies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
 }
 
 .movie-card {
-  border: 1px solid #ddd;
+  width: 100%;
+  max-width: 355px;
+  border: 1px solid #ffffff;
   border-radius: 8px;
   padding: 10px;
-  text-align: center;
+  text-align: left;
+  box-sizing: border-box;
 }
 
 .movie-poster {
-  max-width: 350px;
+  width: 100%;
+  height: auto;
   max-height: 500px;
-  min-width: 350px;
-  min-height: 500px;
   object-fit: cover;
   border-radius: 4px;
+  display: block;
 }
+
 
 .movie-name {
   font-size: 1.2em;
@@ -27,6 +31,6 @@
 }
 
 .movie-year {
-  color: #666;
+  color: #6b6b6b;
   font-size: 0.9em;
 }
