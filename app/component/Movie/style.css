@@ -1,13 +1,14 @@
 .movies-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: row;
   gap: 20px;
   padding: 20px;
+  overflow-x: auto;
 }
 
 .movie-card {
-  width: 100%;
-  max-width: 400px;
+  flex-shrink: 0;
+  width: 250px;
   border: 1px solid #ffffff;
   border-radius: 8px;
   padding: 10px;
