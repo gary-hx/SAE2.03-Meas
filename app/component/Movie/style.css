@@ -1,8 +1,12 @@
-.movies-grid {
+
+.movies {
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: row;
-  gap: 20px;
+  gap: 80px;
   padding: 20px;
+  justify-content: center;
+  align-items: center;
   overflow-x: auto;
 }
 
@@ -17,9 +21,8 @@
 }
 
 .movie-poster {
-  width: 100%;
-  height: auto;
-  max-height: 500px;
+  width: auto;
+  height: 400px;
   object-fit: cover;
   border-radius: 4px;
   display: block;

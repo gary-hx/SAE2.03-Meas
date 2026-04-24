@@ -16,7 +16,11 @@ Movie.formatMany = function (movies) {
   if (!movies || movies.length === 0) {
     return '<p>Aucun film disponible pour le moment.</p>';
   }
-  return movies.map((movie) => Movie.format(movie)).join("");
+  let cards = "";
+  for (let i = 0; i < movies.length; i++) {
+    cards += Movie.format(movies[i]);
+  }
+  return `<section class="movies">${cards}</section>`;
 };
 
 export { Movie };
