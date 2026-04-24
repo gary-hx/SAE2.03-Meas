@@ -1,27 +1,5 @@
-<!-- <div class="log">
+<div class="log">
   <ul class="log__list font-mono">
     {{logs}}
   </ul>
-</div> -->
-
-<div class="log">
-    <h4 class="addMovie__title"># Ajouter ou modifier un film</h4>
-    <form class="addMovie__form">
-        
-        <select name="jour">
-            <option value="lundi"></option>
-            <option value="mardi"></option>
-            <option value="mercredi"></option>
-            <option value="jeudi"></option>
-            <option value="vendredi"></option>
-            <option value="samedi"></option>
-            <option value="dimanche"></option>
-        </select>
-
-        <input required type="text" name="entree" placeholder="Saisir une entrée" pattern="[^0-9]*" title="Numbers are not allowed">
-        <input required type="text" name="plat" placeholder="Saisir un plat" pattern="[^0-9]*" title="Numbers are not allowed">
-        <input required type="text" name="dessert" placeholder="Saisir un dessert" pattern="[^0-9]*" title="Numbers are not allowed">
-        <input onclick="{{handler}}" type="button" value="Update" name="todo">
-
-    </form>
 </div>
