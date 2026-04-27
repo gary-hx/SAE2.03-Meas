@@ -33,15 +33,15 @@ function getAllMovies(){
     return $res; // Retourne les résultats
 }
 
-function updateMovie($id, $name, $year, $length, $description, $director, $id_category, $image, $trailer, $min_age){
+function updateMovie($name, $year, $length, $description, $director, $id_category, $image, $trailer, $min_age){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     // Requête SQL pour mettre à jour un film
-    $sql = "UPDATE Movie SET name = :name, year = :year, length = :length, description = :description, director = :director, id_category = :id_category, image = :image, trailer = :trailer, min_age = :min_age WHERE id = :id";
+    $sql = "REPLACE INTO Movie (name, year, length, description, director, id_category, image, trailer, min_age) VALUES (:name, :year, :length, :description, :director, :id_category, :image, :trailer, :min_age)";
     // Prépare la requête SQL
     $stmt = $cnx->prepare($sql);
     // Exécute la requête avec les paramètres liés
-    $result = $stmt->execute([
+    $result = $stmt->execute(array(
         ':name' => $name,
         ':year' => $year,
         ':length' => $length,
@@ -51,7 +51,7 @@ function updateMovie($id, $name, $year, $length, $description, $director, $id_ca
         ':image' => $image,
         ':trailer' => $trailer,
         ':min_age' => $min_age
-    ]);
+    ));
     // Retourne 1 si la mise à jour a réussi, 0 sinon
     return $result ? 1 : 0;
 }
