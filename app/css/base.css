@@ -3,6 +3,7 @@
 @import "./reset.css" layer(reset);
 @import "./variables.css" layer(variables);
 @import "./utilities.css" layer(utilities);
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 @import "../component/NavBar/style.css" layer(components);
 @import "../component/Movie/style.css" layer(components);

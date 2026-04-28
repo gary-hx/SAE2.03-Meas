@@ -1,5 +1,5 @@
 // URL où se trouve le répertoire "server" sur mmi.unilim.fr
-let HOST_URL = "https://meas-sae203.mmi-limoges.fr";//"http://mmi.unilim.fr/~????"; // CHANGE THIS TO MATCH YOUR CONFIG
+let HOST_URL = "https://mmi.unilim.fr/~meas5/SAE2.03-Meas";//"http://mmi.unilim.fr/~????"; // CHANGE THIS TO MATCH YOUR CONFIG
 
 let DataMovie = {};
 
@@ -13,6 +13,13 @@ DataMovie.requestMovies = async function(){
     // Ces données (data) sont automatiquement converties en objet JavaScript.
     let data = await answer.json(); 
     // Enfin, on retourne ces données.
+    return data;
+}
+
+DataMovie.requestMoviesDetails = async function(){
+    let answer = await fetch(HOST_URL + "/server/script.php?todo=readmovies");
+    let data = await answer.json(); 
+    
     return data;
 }
 
