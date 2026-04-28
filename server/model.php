@@ -55,3 +55,14 @@ function updateMovie($name, $year, $length, $description, $director, $id_categor
     // Retourne 1 si la mise à jour a réussi, 0 sinon
     return $result ? 1 : 0;
 }
+
+// public function __construct()
+// {
+//    try {
+//        $this->cnx = new PDO("mysql:host=localhost;dbname=SAE203", "meas5", "996j91SLrMGZgxi");
+//        $this->cnx->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//    } catch (Exception $e) {
+//        echo $e->getMessage();
+//    }
+// }
