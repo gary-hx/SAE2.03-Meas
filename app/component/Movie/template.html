@@ -1,5 +1,11 @@
-
-    <div class="movie-card">
-      <img src="{{image}}" alt="{{name}}" class="movie-poster">
-      <h2 class="movie-name">{{name}}</h2>
+<div class="movie__card">
+      <div class="movie__poster-container" onclick="C.handlerDetail({{id}})">
+        <img src="{{image}}" alt="{{name}}" class="movie__poster">
+        <div class="play__button">
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+        </div>
+      </div>
+      <h2 class="movie__name">{{name}}</h2>
     </div>

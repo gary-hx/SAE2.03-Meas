@@ -33,6 +33,20 @@ function getAllMovies(){
     return $res; // Retourne les résultats
 }
 
+function getMovieDetails($id){
+    // Connexion à la base de données
+    $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+    // Requête SQL pour récupérer tous les détails d'un film par son ID avec le nom de la catégorie
+    $sql = "SELECT m.id, m.name, m.year, m.length, m.description, m.director, m.id_category, c.name as category, m.image, m.trailer, m.min_age FROM Movie m LEFT JOIN Category c ON m.id_category = c.id WHERE m.id = :id";
+    // Prépare la requête SQL
+    $stmt = $cnx->prepare($sql);
+    // Exécute la requête avec le paramètre lié
+    $stmt->execute(array(':id' => $id));
+    // Récupère le résultat
+    $res = $stmt->fetch(PDO::FETCH_OBJ);
+    return $res; // Retourne les détails du film
+}
+
 function updateMovie($name, $year, $length, $description, $director, $id_category, $image, $trailer, $min_age){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);

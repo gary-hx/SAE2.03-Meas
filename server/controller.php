@@ -26,6 +26,15 @@ function readMoviesController(){
     return $movies;
 }
 
+function readMovieDetailsController(){
+    if (!isset($_REQUEST['id'])){
+        return false;
+    }
+    $id = $_REQUEST['id'];
+    $movie = getMovieDetails($id);
+    return $movie;
+}
+
 function updateController(){
 
   $name = $_REQUEST['name'];

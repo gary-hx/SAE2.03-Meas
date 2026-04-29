@@ -1,10 +1,10 @@
 let templateFile = await fetch("./component/MovieDetail/template.html");
 let template = await templateFile.text();
 
-let Movie = {};
+let MovieDetail = {};
 const IMAGE_FOLDER = "../server/images/";
 
-Movie.format = function (movie) {
+MovieDetail.format = function (movie) {
   let html = template;
   let imagePath = movie.image ? `${IMAGE_FOLDER}${movie.image}` : "";
   html = html.replaceAll("{{name}}", movie.name);
@@ -15,19 +15,8 @@ Movie.format = function (movie) {
   html = html.replaceAll("{{min_age}}", movie.min_age);
   html = html.replaceAll("{{trailer}}", movie.trailer);
   html = html.replaceAll("{{director}}", movie.director);
-  html = html.replaceAll("{{id_category}}", movie.id_category);
+  html = html.replaceAll("{{category}}", movie.category);
   return html;
 };
 
-Movie.formatMany = function (movies) {
-  if (!movies || movies.length === 0) {
-    return '<p>Aucun film disponible pour le moment.</p>';
-  }
-  let cards = "";
-  for (let i = 0; i < movies.length; i++) {
-    cards += Movie.format(movies[i]);
-  }
-  return `<section class="movies">${cards}</section>`;
-};
-
-export { Movie };
+export { MovieDetail };

@@ -16,6 +16,7 @@
   <script type="module">
     import { NavBar } from "./component/NavBar/script.js";
     import { Movie } from "./component/Movie/script.js";
+    import { MovieDetail } from "./component/MovieDetail/script.js";
     import { DataMovie } from "./data/dataMovie.js";
 
     // URL du serveur (doit correspondre à dataMovie.js)
@@ -32,8 +33,16 @@
       );
     };
 
+    C.handlerHome = function () {
+      V.renderMovies();
+    };
+
+    C.handlerDetail = function (id) {
+      V.renderMovieDetail(id);
+    };
+
     C.start = function () {
-      V.renderNavBar("C.handlerAbout()");
+      V.renderNavBar("C.handlerAbout()", "C.handlerHome()");
       V.renderMovies();
     };
 
@@ -53,6 +62,19 @@
         });
     };
 
+    V.renderMovieDetail = function (id) {
+      let content = document.querySelector('#content');
+
+      DataMovie.requestMovieDetails(id)
+        .then((movie) => {
+          content.innerHTML = MovieDetail.format(movie);
+        })
+        .catch((error) => {
+          console.error("Erreur lors du chargement des détails du film :", error);
+          content.innerHTML = '<p>Erreur lors du chargement des détails du film.</p>';
+        });
+    };
+
     /**
      * V.renderNavBar
      *
@@ -60,16 +82,12 @@
      * Elle sélectionne l'élément HTML avec l'ID "header" et y insère le contenu
      * formaté par le composant NavBar.
      */
-    V.renderNavBar = function (hAbout) {
+    V.renderNavBar = function (hAbout, hHome) {
       let header = document.querySelector("#header");
-      header.innerHTML = NavBar.format(hAbout);
+      header.innerHTML = NavBar.format(hAbout, hHome);
     };
 
     C.start(); // Démarre l'application
-
-    C.handlerDetail = function () {
-        alert("Détail du film : " + this.dataset.id);
-    };
 
   </script>
 </body>

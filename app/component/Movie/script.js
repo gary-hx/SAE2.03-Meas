@@ -9,6 +9,7 @@ Movie.format = function (movie) {
   let imagePath = movie.image ? `${IMAGE_FOLDER}${movie.image}` : "";
   html = html.replaceAll("{{name}}", movie.name);
   html = html.replaceAll("{{image}}", imagePath);
+  html = html.replaceAll("{{id}}", movie.id);
   return html;
 };
 
