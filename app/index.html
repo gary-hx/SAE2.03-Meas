@@ -16,6 +16,7 @@
   <script type="module">
     import { NavBar } from "./component/NavBar/script.js";
     import { Movie } from "./component/Movie/script.js";
+    import { MovieCategory } from "./component/MovieCategory/script.js";
     import { MovieDetail } from "./component/MovieDetail/script.js";
     import { DataMovie } from "./data/dataMovie.js";
 
@@ -49,12 +50,24 @@
     // Vue (contient tout ce qui est relatif à l'affichage)
     window.V = {};
 
+    V.groupMoviesByCategory = function (movies) {
+      return movies.reduce((groups, movie) => {
+        const category = movie.category || "Autres";
+        if (!groups[category]) {
+          groups[category] = [];
+        }
+        groups[category].push(movie);
+        return groups;
+      }, {});
+    };
+
     V.renderMovies = function () {
       let content = document.querySelector('#content');
 
       DataMovie.requestMovies()
         .then((movies) => {
-          content.innerHTML = Movie.formatMany(movies);
+          const groupedMovies = V.groupMoviesByCategory(movies);
+          content.innerHTML = MovieCategory.format(groupedMovies);
         })
         .catch((error) => {
           console.error("Aucun film disponible pour le moment :", error);
