@@ -14,9 +14,9 @@
  * DBPWD : Mot de passe pour se connecter à la base de données.
  */
 define("HOST", "localhost");
-define("DBNAME", "meas5");
+define("DBNAME", "SAE203");
 define("DBLOGIN", "meas5");
-define("DBPWD", "meas5");
+define("DBPWD", "996j91SLrMGZgxi");
 
 
 function getAllMovies(){
@@ -70,16 +70,15 @@ function updateMovie($name, $year, $length, $description, $director, $id_categor
     return $result ? 1 : 0;
 }
 
-function updateProfile($id, $name, $image, $age){
+function addProfile($name, $image, $age){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     // Requête SQL pour mettre à jour un profil
-    $sql = "INSERT INTO Profile (id, name, image, age) VALUES (:id, :name, :image, :age)";
+    $sql = "INSERT INTO Profile (name, image, age) VALUES (:name, :image, :age)";
     // Prépare la requête SQL
     $stmt = $cnx->prepare($sql);
     // Exécute la requête avec les paramètres liés
     $result = $stmt->execute(array(
-        ':id' => $id,
         ':name' => $name,
         ':image' => $image,
         ':age' => $age

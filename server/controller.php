@@ -55,17 +55,30 @@ function updateMovieController(){
   }
 }
 
-function updateProfileController(){
+function addProfileController(){
 
-  $name = $_REQUEST['name'];
-  $image = $_REQUEST['image'];
-  $age = $_REQUEST['age'];
-  $ok = updateProfile($name, $image, $age);
-  if ($ok!=0){
+  if (!isset($_POST['name'], $_POST['age'])) {
+      throw new Exception("Paramètres manquants");
+  }
+
+  $name = $_POST['name'];
+  $age = $_POST['age'];
+
+  // image peut être optionnelle
+  $image = $_POST['image'] ?? '';
+
+  $ok = addProfile($name, $image, $age);
+
+  if ($ok != 0){
     return "Le profil a été ajouté avec succès.";
   }
   else{
     return false;
   }
+}
+
+function readProfilesController(){
+    $profiles = getAllProfiles();
+    return $profiles;
 }
 

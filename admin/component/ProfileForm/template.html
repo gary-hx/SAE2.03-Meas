@@ -2,20 +2,12 @@
     <h4 class="addProfile__title">Ajouter un profil</h4>
     <form class="addProfile__form">
         
-        <input required type="hidden" name="todo" value="updateProfile">
+        <input required type="hidden" name="todo" value="addProfile">
         <input required type="hidden" name="id" value="">
  
         <input required type="text" name="name" placeholder="Nom du profil*">
-        <input required type="text" name="image" placeholder="Avatar (image)*">
-        
-        <select required name="age">
-            <option value="">-- Âge minimum* --</option>
-            <option value="10">10 ans</option>
-            <option value="12">12 ans</option>
-            <option value="14">14 ans</option>
-            <option value="16">16 ans</option>
-            <option value="18">18 ans</option>
-        </select>
+        <input  type="text" name="image" placeholder="Avatar (image)*">
+        <input required type="number" name="age" placeholder="Âge*" min="1" max="120">
         
         <input onclick="{{handler}}" type="button" value="Ajouter" name="button">
 

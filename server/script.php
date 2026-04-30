@@ -1,4 +1,15 @@
 <?php
+ob_start();
+
+
+
+set_exception_handler(function($e) {
+    ob_end_clean();
+    header('Content-Type: application/json');
+    http_response_code(500);
+    echo json_encode(['error' => $e->getMessage()]);
+    exit();
+});
 // Activer le rapport d'erreurs PHP
 error_reporting(E_ALL);
 
@@ -70,9 +81,14 @@ if ( isset($_REQUEST['todo']) ){
       $data = updateMovieController();
       break;
 
-    case 'updateProfile':
-      $data = updateProfileController();
+    case 'addProfile':
+      $data = addProfileController();
       break;
+    case 'readProfiles':
+    $data = readProfilesController();
+    break;
+
+    
 
     default: // il y a un paramètre todo mais sa valeur n'est pas reconnue/supportée
       echo json_encode('[error] Unknown todo value');

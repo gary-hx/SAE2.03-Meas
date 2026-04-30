@@ -34,7 +34,7 @@
             let form = document.querySelector('.addProfile__form');
       
             let fd = new FormData(form);
-            let res = await DataProfile.update(fd);
+            let res = await DataProfile.addProfile(fd);
             V.renderLog(res);
         }
 

@@ -31,7 +31,7 @@
 
 .moviedetail__right {
   flex: 1;
-  color: #ffffff;
+  color: var(--color-white);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -39,33 +39,34 @@
 
 .moviedetail__title {
   font-size: 2.5rem;
-  color: black;
-  font-family: "Archivo Black", sans-serif;
+  margin-bottom: 2rem;
+  color: var(--color-black);
+  font-family: var(--ff-heading);
   margin: 0;
 }
 
 .moviedetail__info {
   display: flex;
-  color: black;
+  color: var(--color-black);
   flex-direction: column;
   gap: 12px;
 }
 
 .moviedetail__description {
   font-size: 1rem;
-  color: black;
+  color: var(--color-black);
   line-height: 1.6;
   margin: 0;
 }
 
 .moviedetail__meta {
   font-size: 0.95rem;
-  color: black;
+  color: var(--color-black);
   margin: 0;
 }
 
 .moviedetail__meta strong {
-  color: black;
+  color: var(--color-black);
 }
 
 .moviedetail__trailer {
@@ -74,8 +75,8 @@
 
 .moviedetail__trailer h3 {
   font-size: 1.3rem;
-  color: black;
-  font-family: "Archivo Black", sans-serif;
+  color: var(--color-black);
+  font-family: var(--ff-heading);
   margin: 0 0 15px 0;
 }
 
