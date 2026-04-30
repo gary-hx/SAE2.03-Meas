@@ -1,15 +1,15 @@
 
 
-let templateFile = await fetch('./component/NewMovieForm/template.html');
+let templateFile = await fetch('./component/ProfileForm/template.html');
 let template = await templateFile.text();
 
 
-let NewMovieForm = {};
+let ProfileForm = {};
 
-NewMovieForm.format = function(handler){
+ProfileForm.format = function(handler){
     let html= template;
     html = html.replace('{{handler}}', handler);
     return html;
 }
 
-export {NewMovieForm};
+export {ProfileForm};

@@ -1,14 +1,14 @@
-<div class="addMovie">
-    <h4 class="addMovie__title">Ajouter un profil</h4>
-    <form class="addMovie__form">
+<div class="addProfile">
+    <h4 class="addProfile__title">Ajouter un profil</h4>
+    <form class="addProfile__form">
         
-        <input required type="hidden" name="todo" value="update">
+        <input required type="hidden" name="todo" value="updateProfile">
         <input required type="hidden" name="id" value="">
  
         <input required type="text" name="name" placeholder="Nom du profil*">
         <input required type="text" name="image" placeholder="Avatar (image)*">
         
-        <select required name="min_age">
+        <select required name="age">
             <option value="">-- Âge minimum* --</option>
             <option value="10">10 ans</option>
             <option value="12">12 ans</option>
@@ -17,7 +17,7 @@
             <option value="18">18 ans</option>
         </select>
         
-        <input onclick="{{handler}}" type="button" value="Update" name="button">
+        <input onclick="{{handler}}" type="button" value="Ajouter" name="button">
 
     </form>
 </div>

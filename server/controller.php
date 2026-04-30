@@ -35,7 +35,7 @@ function readMovieDetailsController(){
     return $movie;
 }
 
-function updateController(){
+function updateMovieController(){
 
   $name = $_REQUEST['name'];
   $year = $_REQUEST['year'];
@@ -48,7 +48,21 @@ function updateController(){
   $min_age = $_REQUEST['min_age'];
   $ok = updateMovie($name, $year, $length, $description, $director, $id_category, $image, $trailer, $min_age);
   if ($ok!=0){
-    return "Le film a été mis à jour";
+    return "Le film a été ajouté avec succès.";
+  }
+  else{
+    return false;
+  }
+}
+
+function updateProfileController(){
+
+  $name = $_REQUEST['name'];
+  $image = $_REQUEST['image'];
+  $age = $_REQUEST['age'];
+  $ok = updateProfile($name, $image, $age);
+  if ($ok!=0){
+    return "Le profil a été ajouté avec succès.";
   }
   else{
     return false;
