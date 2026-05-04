@@ -1,19 +1,13 @@
-.moviedetail__container {
-  display: grid;
-  grid-template-columns: repeat(3, 20%);
-  gap: 80px;
-  padding: 20px;
-  justify-content: center;
-  align-content: center;
-  overflow-x: auto;
-}
 
 .moviedetail__container {
   display: flex;
   gap: 40px;
   padding: 40px;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
+  justify-content: center;
+  align-content: center;
+  overflow-x: hidden;
 }
 
 .moviedetail__left {
@@ -81,8 +75,16 @@
 }
 
 .moviedetail__trailer iframe {
-  width: 100%;
-  height: 300px;
+  width: 700px;
+  height: 415px;
   border: none;
   border-radius: 8px;
 }
+
+/* 
+.movie__trailer iframe{
+  width: 100%;
+  height: 1000px;
+  border: none;
+  border-radius: 8px;
+} */

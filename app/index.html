@@ -1,109 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
+  <head>
+    <title>SAE2.03 APP</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/base.css" />
+  </head>
 
-<head>
-  <title>SAE2.03 APP</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/base.css" />
-</head>
+  <body>
+    <header id="header"></header>
 
-<body>
-  <header id="header"></header>
+    <section id="content"></section>
 
-  <section id="content"></section>
+    <script type="module">
+      import { NavBar } from "./component/NavBar/script.js";
+      import { Movie } from "./component/Movie/script.js";
+      import { MovieCategory } from "./component/MovieCategory/script.js";
+      import { MovieDetail } from "./component/MovieDetail/script.js";
+      import { DataMovie } from "./data/dataMovie.js";
 
-  <script type="module">
-    import { NavBar } from "./component/NavBar/script.js";
-    import { Movie } from "./component/Movie/script.js";
-    import { MovieCategory } from "./component/MovieCategory/script.js";
-    import { MovieDetail } from "./component/MovieDetail/script.js";
-    import { DataMovie } from "./data/dataMovie.js";
+      // URL du serveur (doit correspondre à dataMovie.js)
+      const HOST_URL = "https://mmi.unilim.fr/~meas5/SAE2.03-Meas/";
 
-    // URL du serveur (doit correspondre à dataMovie.js)
-    const HOST_URL = "https://mmi.unilim.fr/~meas5/SAE2.03-Meas/";
+      // Controleur
+      // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
+      // Une fois l'application terminée, on pourrait remettre let C.
+      window.C = {};
 
-    // Controleur
-    // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
-    // Une fois l'application terminée, on pourrait remettre let C.
-    window.C = {};
+      C.handlerAbout = function () {
+        alert(
+          "Ceci est une base de projet pour la SAE2.03 édition 2025. Bonne chance !",
+        );
+      };
 
-    C.handlerAbout = function () {
-      alert(
-        "Ceci est une base de projet pour la SAE2.03 édition 2025. Bonne chance !"
-      );
-    };
+      C.handlerHome = function () {
+        V.renderMovies();
+      };
 
-    C.handlerHome = function () {
-      V.renderMovies();
-    };
+      C.handlerDetail = function (id) {
+        V.renderMovieDetail(id);
+      };
 
-    C.handlerDetail = function (id) {
-      V.renderMovieDetail(id);
-    };
+      C.start = function () {
+        V.renderNavBar(
+          "C.handlerAbout()",
+          "C.handlerHome()",
+          "C.handlerProfiles()",
+        );
+        V.renderMovies();
+        V.renderProfiles();
+      };
 
-    C.start = function () {
-      V.renderNavBar("C.handlerAbout()", "C.handlerHome()");
-      V.renderMovies();
-    };
+      // Vue (contient tout ce qui est relatif à l'affichage)
+      window.V = {};
 
-    // Vue (contient tout ce qui est relatif à l'affichage)
-    window.V = {};
+      V.groupMoviesByCategory = function (movies) {
+        return movies.reduce((groups, movie) => {
+          const category = movie.category || "Autres";
+          if (!groups[category]) {
+            groups[category] = [];
+          }
+          groups[category].push(movie);
+          return groups;
+        }, {});
+      };
 
-    V.groupMoviesByCategory = function (movies) {
-      return movies.reduce((groups, movie) => {
-        const category = movie.category || "Autres";
-        if (!groups[category]) {
-          groups[category] = [];
-        }
-        groups[category].push(movie);
-        return groups;
-      }, {});
-    };
+      V.renderMovies = function () {
+        let content = document.querySelector("#content");
 
-    V.renderMovies = function () {
-      let content = document.querySelector('#content');
+        DataMovie.requestMovies()
+          .then((movies) => {
+            const groupedMovies = V.groupMoviesByCategory(movies);
+            content.innerHTML = MovieCategory.format(groupedMovies);
+          })
+          .catch((error) => {
+            console.error("Aucun film disponible pour le moment :", error);
+            content.innerHTML = "<p>Aucun film disponible pour le moment.</p>";
+          });
+      };
 
-      DataMovie.requestMovies()
-        .then((movies) => {
-          const groupedMovies = V.groupMoviesByCategory(movies);
-          content.innerHTML = MovieCategory.format(groupedMovies);
-        })
-        .catch((error) => {
-          console.error("Aucun film disponible pour le moment :", error);
-          content.innerHTML = '<p>Aucun film disponible pour le moment.</p>';
+      V.renderMovieDetail = function (id) {
+        let content = document.querySelector("#content");
+
+        DataMovie.requestMovieDetails(id)
+          .then((movie) => {
+            content.innerHTML = MovieDetail.format(movie);
+          })
+          .catch((error) => {
+            console.error(
+              "Erreur lors du chargement des détails du film :",
+              error,
+            );
+            content.innerHTML =
+              "<p>Erreur lors du chargement des détails du film.</p>";
+          });
+      };
+
+      V.renderProfiles = function () {
+        let content = document.querySelector("#content");
+
+        DataProfile.read().then((profiles) => {
+          const groupedProfiles = V.groupProfilesByCategory(profiles);
+          content.innerHTML = ProfileCategory.format(groupedProfiles);
         });
-    };
+      };
 
-    V.renderMovieDetail = function (id) {
-      let content = document.querySelector('#content');
+      /**
+       * V.renderNavBar
+       *
+       * Cette fonction est responsable de l'affichage de la barre de navigation (NavBar).
+       * Elle sélectionne l'élément HTML avec l'ID "header" et y insère le contenu
+       * formaté par le composant NavBar.
+       */
+      V.renderNavBar = function (hAbout, hHome, hProfile) {
+        let header = document.querySelector("#header");
+        header.innerHTML = NavBar.format(hAbout, hHome, hProfile);
+      };
 
-      DataMovie.requestMovieDetails(id)
-        .then((movie) => {
-          content.innerHTML = MovieDetail.format(movie);
-        })
-        .catch((error) => {
-          console.error("Erreur lors du chargement des détails du film :", error);
-          content.innerHTML = '<p>Erreur lors du chargement des détails du film.</p>';
-        });
-    };
-
-    /**
-     * V.renderNavBar
-     *
-     * Cette fonction est responsable de l'affichage de la barre de navigation (NavBar).
-     * Elle sélectionne l'élément HTML avec l'ID "header" et y insère le contenu
-     * formaté par le composant NavBar.
-     */
-    V.renderNavBar = function (hAbout, hHome) {
-      let header = document.querySelector("#header");
-      header.innerHTML = NavBar.format(hAbout, hHome);
-    };
-
-    C.start(); // Démarre l'application
-
-  </script>
-</body>
-
+      C.start(); // Démarre l'application
+    </script>
+  </body>
 </html>
 <script type="module"></script>

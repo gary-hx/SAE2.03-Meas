@@ -64,7 +64,6 @@ function addProfileController(){
   $name = $_POST['name'];
   $age = $_POST['age'];
 
-  // image peut être optionnelle
   $image = $_POST['image'] ?? '';
 
   $ok = addProfile($name, $image, $age);
@@ -78,7 +77,7 @@ function addProfileController(){
 }
 
 function readProfilesController(){
-    $profiles = getAllProfiles();
+    $profiles = getProfiles();
     return $profiles;
 }
 
