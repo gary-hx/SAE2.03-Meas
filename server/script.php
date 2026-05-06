@@ -84,10 +84,15 @@ if ( isset($_REQUEST['todo']) ){
     case 'addProfile':
       $data = addProfileController();
       break;
+
+    case 'updateProfile':
+      $data = updateProfileController();
+      break;
     
-    case 'readProfiles':
+    case 'readprofiles':
       $data = readProfilesController();
       break;
+
 
     
 

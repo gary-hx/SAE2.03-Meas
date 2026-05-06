@@ -1,0 +1,17 @@
+.category__section {
+  margin-bottom: 2rem;
+  padding-inline: 2rem;
+}
+
+.category__section-title {
+  margin-bottom: var(--space-s);
+  padding-bottom: var(--space-xs);
+  margin-left: 1rem;
+  border: 2px solid var(--color-gray);
+  width: 12rem;
+  text-align: center;
+}
+
+.category__section-movies {
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+}

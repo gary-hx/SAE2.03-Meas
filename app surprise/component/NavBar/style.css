@@ -1,0 +1,68 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  color: var(--color-fg);
+  background-color: var(--color-white);
+
+  .navbar__list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .navbar__profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--color-white);
+    font-family: var(--ff-heading);
+    --_offset: 0.2rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar__profile-avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .navbar__profile-avatar--img {
+    object-fit: cover;
+  }
+
+  .navbar__profile-avatar--letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: 0.875rem;
+    font-weight: bold;
+  }
+
+  .navbar__profile-name {
+    font-family: var(--ff-heading);
+    background-color: var(--color-red);
+    width: fit-content;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .navbar__item {
+    font-family: var(--ff-heading);
+    color: var(--color-black);
+    --_offset: 0.2rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+  .navbar__profile-name:hover {
+   background-color: var(--color-red-dark);
+  }
+
+  .navbar__item:hover{
+    text-decoration: underline;
+  }
+

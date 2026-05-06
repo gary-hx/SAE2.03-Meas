@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="html" lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -14,9 +14,11 @@
 
   <div class="nav">
 
-  <a href="admin/index.html" class="admin__btn">Admin</a>
-  <a href="app/index.html" class="app__btn">Application</a>
-  <a href="rapport.html" class="app__btn">Go access</a>
+  <a href="admin/index.html" class="landing__btn">Admin</a>
+  <a href="app/index.html" class="landing__btn">Application</a>
+  <a href="rapport.html" class="landing__btn">Go access</a>
+  <a href="admin surprise/index.html" class="landing__btn">Admin surprise</a>
+  <a href="app surprise/index.html" class="landing__btn">Application surprise</a>
 
 </div>
 
@@ -24,8 +26,14 @@
 
 <style>
 
+.html {
+  height: 100%;
+}
+
 .title {
   font-size: 4rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
 }
 
 .index {
@@ -33,13 +41,15 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 30rem;
+    height: 100%;
 }
 
-.admin__btn {
+.landing__btn {
     display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: brown;
-    margin-right: 1rem;
+    margin: 1rem;
     color: white;
     font-weight: 900;
     font-size: 2.5rem;
@@ -49,26 +59,23 @@
     transition: background-color 0.3s ease;
 }
 
-.app__btn {
-    display: flex;
-    background-color: brown;
-    margin-left: 1rem;
-    border-radius: 100%;
-    color: white;
-    font-weight: 900;
-    font-size: 2.5rem;
-    padding: 12px 24px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-
-}
 
 .nav {
     display: flex;
     flex-direction: row;
 }
 
+@media (max-width: 600px) {
+    .nav {
+        flex-direction: column;
+    }
+
+    .landing__btn {
+        font-size: 1.5rem;
+        padding: 12px 16px;
+        text-align: center;
+    }
+}
 </style>
 
 </html>

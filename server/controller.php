@@ -22,7 +22,8 @@ require("model.php");
 
 
 function readMoviesController(){
-    $movies = getAllMovies();
+    $ageLimit = isset($_REQUEST['ageLimit']) ? (int)$_REQUEST['ageLimit'] : 0;
+    $movies = getAllMovies($ageLimit);
     return $movies;
 }
 
@@ -53,6 +54,24 @@ function updateMovieController(){
   else{
     return false;
   }
+}
+
+
+function updateProfileController(){
+    if (!isset($_POST['id'], $_POST['name'], $_POST['age'])) {
+        throw new Exception("Paramètres manquants");
+    }
+    $id    = $_POST['id'];
+    $name  = $_POST['name'];
+    $age   = $_POST['age'];
+    $image = $_POST['image'] ?? '';
+    $ok = updateProfile($id, $name, $image, $age);
+    if ($ok != 0){
+        return "Le profil a été modifié avec succès.";
+    }
+    else{
+        return false;
+    }
 }
 
 function addProfileController(){

@@ -1,0 +1,36 @@
+<div class="editProfile">
+  <h4 class="editProfile__title">Modifier un profil</h4>
+  <form class="editProfile__form">
+    <input type="hidden" name="todo" value="updateProfile" />
+    <input type="hidden" name="id" value="" />
+    <input
+      class="editProfile__item"
+      required
+      type="text"
+      name="name"
+      placeholder="Nom du profil*"
+    />
+    <input
+      class="editProfile__item"
+      type="text"
+      name="image"
+      placeholder="Avatar (nom du fichier, facultatif)"
+    />
+    <input
+      class="editProfile__item"
+      required
+      type="number"
+      name="age"
+      placeholder="Âge*"
+      min="1"
+      max="120"
+    />
+    <input
+      class="editProfile__btn"
+      onclick="{{handler}}"
+      type="button"
+      value="Modifier"
+      name="button"
+    />
+  </form>
+</div>

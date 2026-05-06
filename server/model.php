@@ -19,15 +19,15 @@ define("DBLOGIN", "meas5");
 define("DBPWD", "meas5");
 
 
-function getAllMovies(){
+function getAllMovies($ageLimit = 0){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
-    // Requête SQL pour récupérer les films avec le nom de leur catégorie
-    $sql = "SELECT m.id, m.name, m.image, c.name AS category FROM Movie m LEFT JOIN Category c ON m.id_category = c.id";
+    // Requête SQL pour récupérer les films accessibles selon l'âge du profil
+    $sql = "SELECT m.id, m.name, m.image, c.name AS category FROM Movie m LEFT JOIN Category c ON m.id_category = c.id WHERE m.min_age <= :ageLimit";
     // Prépare la requête SQL
     $stmt = $cnx->prepare($sql);
-    // Exécute la requête SQL
-    $stmt->execute();
+    // Exécute la requête SQL avec le paramètre d'âge
+    $stmt->execute(array(':ageLimit' => $ageLimit));
     // Récupère les résultats de la requête sous forme d'objets
     $res = $stmt->fetchAll(PDO::FETCH_OBJ);
     return $res; // Retourne les résultats
@@ -70,6 +70,20 @@ function updateMovie($name, $year, $length, $description, $director, $id_categor
     return $result ? 1 : 0;
 }
 
+
+function updateProfile($id, $name, $image, $age){
+    $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+    $sql = "REPLACE INTO Profile (id, name, image, age) VALUES (:id, :name, :image, :age)";
+    $stmt = $cnx->prepare($sql);
+    $result = $stmt->execute(array(
+        ':id'    => $id,
+        ':name'  => $name,
+        ':image' => $image,
+        ':age'   => $age
+    ));
+    return $result ? 1 : 0;
+}
+
 function addProfile($name, $image, $age){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
@@ -91,7 +105,7 @@ function getProfiles(){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     // Requête SQL pour récupérer tous les profils
-    $sql = "SELECT * FROM Profile";
+    $sql = "SELECT id, name AS nom, image, age AS restriction_age FROM Profile";
     // Prépare la requête SQL
     $stmt = $cnx->prepare($sql);
     // Exécute la requête SQL

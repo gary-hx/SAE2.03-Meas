@@ -1,0 +1,106 @@
+#editProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 4rem;
+  background-color: var(--color-gray);
+  width: 23rem;
+  border-radius: 0.75rem;
+}
+
+.editProfile__title {
+  font-size: 1.5rem;
+  font-family: var(--ff-heading);
+  margin: 1.5rem;
+}
+
+.editProfile__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.editProfile__item {
+  margin: 0.5rem;
+  width: 16rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+}
+
+.editProfile__btn {
+  margin-top: 1rem;
+  width: 6rem;
+  height: 2rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--ff-heading);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+.profileList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.profileList__title {
+  display: flex;
+  font-size: 1.5rem;
+  font-family: var(--ff-heading);
+  margin: 1.5rem;
+  text-align: center;
+}
+
+.profileList__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.profileList__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: var(--color-gray);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  min-width: 8rem;
+}
+
+.profileList__card:hover {
+  transform: scale(1.05);
+  outline: 2px solid var(--color-white);
+}
+
+.profileList__card--selected {
+  outline: 2px solid var(--color-white);
+}
+
+.profileList__card-name {
+  font-family: var(--ff-heading);
+  font-size: 0.9rem;
+  color: var(--color-white);
+}
+
+.profileList__card-age {
+  font-size: 0.8rem;
+  color: var(--color-white);
+  opacity: 0.7;
+}
