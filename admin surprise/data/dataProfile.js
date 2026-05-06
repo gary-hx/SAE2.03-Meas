@@ -1,32 +1,38 @@
 // URL où se trouve le répertoire "server" sur mmi.unilim.fr
-let HOST_URL = "https://mmi.unilim.fr/~meas5/SAE2.03-Meas/";//"http://mmi.unilim.fr/~????"; // CHANGE THIS TO MATCH YOUR CONFIG
+let HOST_URL = ".."; //"http://mmi.unilim.fr/~????"; // CHANGE THIS TO MATCH YOUR CONFIG
 
 let DataProfile = {};
 
-DataProfile.requestProfiles = async function(){
-    let answer = await fetch(HOST_URL + "/server/script.php?todo=readprofiles");
-    let data = await answer.json();
-    return data;
-}
+DataProfile.requestProfiles = async function () {
+  let answer = await fetch(HOST_URL + "/server/script.php?todo=readprofiles");
+  let data = await answer.json();
+  return data;
+};
 
-DataProfile.update = async function(fdata){
-    let config = {
-        method: "POST",
-        body: fdata
-    };
-    let answer = await fetch(HOST_URL + "/server/script.php?todo=updateProfile", config);
-    let data = await answer.json();
-    return data;
-}
+DataProfile.update = async function (fdata) {
+  let config = {
+    method: "POST",
+    body: fdata,
+  };
+  let answer = await fetch(
+    HOST_URL + "/server/script.php?todo=updateProfile",
+    config,
+  );
+  let data = await answer.json();
+  return data;
+};
 
 DataProfile.addProfile = async function (fdata) {
-    let config = {
-        method: "POST", 
-        body: fdata
-    };
-    let answer = await fetch(HOST_URL + "/server/script.php?todo=addProfile", config);
-    let data = await answer.json();
-    return data;
-}
+  let config = {
+    method: "POST",
+    body: fdata,
+  };
+  let answer = await fetch(
+    HOST_URL + "/server/script.php?todo=addProfile",
+    config,
+  );
+  let data = await answer.json();
+  return data;
+};
 
-export {DataProfile};
+export { DataProfile };
