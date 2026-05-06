@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
   /* Primitive Tokens */
@@ -9,9 +10,12 @@
   --color-gray: hsl(0, 0%, 50%);
   --color-gray-dark: hsl(0, 0%, 20%);
   --color-green: hsl(120, 100%, 37%);
+  --color-red: #ff001e;
+  --color-red-dark: #A82003;
 
   --ff-sans: "DM sans", sans-serif;
   --ff-heading: "Archivo Black", sans-serif;
+  --ff-host: "Host Grotesk", sans-serif;
 
   /* Sementic Tokens */
   --color-fg: var(--color-white);

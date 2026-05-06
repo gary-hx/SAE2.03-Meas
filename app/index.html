@@ -13,7 +13,10 @@
 
     <section id="content"></section>
 
-    <div id="profile-overlay" class="profile-overlay flex-context flex-center"></div>
+    <div
+      id="profile-overlay"
+      class="profile-overlay flex-context flex-center"
+    ></div>
 
     <script type="module">
       import { NavBar } from "./component/NavBar/script.js";
@@ -54,13 +57,13 @@
         C.activeProfileId = id;
         C.activeProfileName = name;
         C.activeProfileAge = age;
-        C.activeProfileImage = (image && image !== "null") ? image : null;
+        C.activeProfileImage = image && image !== "null" ? image : null;
         document.querySelector("#profile-overlay").style.display = "none";
         V.renderNavBar(
           "C.handlerAbout()",
           "C.handlerHome()",
           "C.handlerChangeProfile()",
-          { nom: name, image: C.activeProfileImage }
+          { nom: name, image: C.activeProfileImage },
         );
         V.renderMovies(age);
       };
@@ -83,7 +86,8 @@
         ]);
 
         let groupedMovies = V.groupMoviesByCategory(movies);
-        document.querySelector("#content").innerHTML = MovieCategory.format(groupedMovies);
+        document.querySelector("#content").innerHTML =
+          MovieCategory.format(groupedMovies);
 
         V.renderProfiles(profiles);
       };

@@ -2,46 +2,48 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.addProfile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 4rem;
-  background-color: var(--color-gray);
-  width: 23rem;
-  border-radius: 0.75rem;
-}
+  .addProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 4rem;
+    background-color: var(--color-gray);
+    width: 23rem;
+    border-radius: 0.75rem;
+  }
 
-.addProfile__title {
-  font-size: 1.5rem;
-  font-family: var(--ff-heading);
-  margin: 1.5rem;
-}
+  .addProfile__title {
+    font-size: 1.5rem;
+    font-family: var(--ff-heading);
+    color: var(--color-white);
+    margin: 1.5rem;
+  }
 
-.addProfile__form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+  .addProfile__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-.addProfile__item {
-  margin: 0.5rem;
-  width: 16rem;
-  height: 2rem;
-  border-radius: 0.5rem;
-}
+  .addProfile__item {
+    margin: 0.5rem;
+    width: 16rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+  }
 
-.addProfile__btn {
-  margin-top: 1rem;
-  width: 6rem;
-  height: 2rem;
-  background-color: var(--color-black);
-  color: var(--color-white);
-  font-family: var(--ff-heading);
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
+  .addProfile__btn {
+    margin-top: 1rem;
+    width: 6rem;
+    height: 2rem;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-family: var(--ff-heading);
+    cursor: pointer;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
 }

@@ -9,6 +9,14 @@
   .navbar__list {
     display: flex;
     flex-direction: row;
+
+    .navbar__item {
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   .navbar__profile {
@@ -44,25 +52,37 @@
   }
 
   .navbar__profile-name {
-    font-family: var(--ff-heading);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--ff-host);
     background-color: var(--color-red);
-    width: fit-content;
+    width: 130px;
+    height: 40px;
     padding: 0.25rem 0.5rem;
   }
 
   .navbar__item {
-    font-family: var(--ff-heading);
+    font-family: var(--ff-host);
+    font-size: 18px;
+    font-weight: 700;
     color: var(--color-black);
     --_offset: 0.2rem;
     padding: 0.5rem 1rem;
   }
-}
+
+  .navbar__logo {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+  }
 
   .navbar__profile-name:hover {
-   background-color: var(--color-red-dark);
+    background-color: var(--color-red-dark);
+    cursor: pointer;
   }
 
-  .navbar__item:hover{
+  .navbar__item:hover {
     text-decoration: underline;
   }
-
+}

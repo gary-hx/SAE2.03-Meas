@@ -7,9 +7,6 @@
   margin-bottom: var(--space-s);
   padding-bottom: var(--space-xs);
   margin-left: 1rem;
-  border: 2px solid var(--color-gray);
-  width: 12rem;
-  text-align: center;
 }
 
 .category__section-movies {

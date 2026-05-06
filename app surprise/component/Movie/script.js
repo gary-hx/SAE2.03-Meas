@@ -10,6 +10,7 @@ Movie.format = function (movie) {
   html = html.replaceAll("{{name}}", movie.name);
   html = html.replaceAll("{{image}}", imagePath);
   html = html.replaceAll("{{id}}", movie.id);
+  html = html.replaceAll("{{director}}", movie.director);
   return html;
 };
 

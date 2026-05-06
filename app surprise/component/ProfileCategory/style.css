@@ -13,6 +13,3 @@
   grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
 }
 
-.category__section-title:hover {
-  text-decoration: underline;
-}

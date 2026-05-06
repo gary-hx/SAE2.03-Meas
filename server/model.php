@@ -23,7 +23,7 @@ function getAllMovies($ageLimit = 0){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     // Requête SQL pour récupérer les films accessibles selon l'âge du profil
-    $sql = "SELECT m.id, m.name, m.image, c.name AS category FROM Movie m LEFT JOIN Category c ON m.id_category = c.id WHERE m.min_age <= :ageLimit";
+    $sql = "SELECT m.id, m.name, m.image, m.director, c.name AS category FROM Movie m LEFT JOIN Category c ON m.id_category = c.id WHERE m.min_age <= :ageLimit";
     // Prépare la requête SQL
     $stmt = $cnx->prepare($sql);
     // Exécute la requête SQL avec le paramètre d'âge

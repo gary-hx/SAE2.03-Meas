@@ -9,6 +9,14 @@
   .navbar__list {
     display: flex;
     flex-direction: row;
+
+    .navbar__item {
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   .navbar__profile {
@@ -41,6 +49,7 @@
 
   .navbar__profile-name {
     font-family: var(--ff-heading);
+    cursor: pointer;
   }
 
   .navbar__item {
