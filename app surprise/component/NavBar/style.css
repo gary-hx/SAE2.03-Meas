@@ -57,14 +57,14 @@
     justify-content: center;
     font-family: var(--ff-host);
     background-color: var(--color-red);
-    width: 130px;
-    height: 40px;
+    width: 8.125rem;
+    height: 2.5rem;
     padding: 0.25rem 0.5rem;
   }
 
   .navbar__item {
     font-family: var(--ff-host);
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 700;
     color: var(--color-black);
     --_offset: 0.2rem;
@@ -72,8 +72,8 @@
   }
 
   .navbar__logo {
-    width: 70px;
-    height: 70px;
+    width: 4.375rem;
+    height: 4.375rem;
     object-fit: cover;
   }
 
@@ -84,5 +84,16 @@
 
   .navbar__item:hover {
     text-decoration: underline;
+  }
+}
+
+@media (max-width: 768px) {
+ .navbar {
+  padding: 0.5rem 0.5rem;
+ }
+
+ .navbar__profile {
+  display: flex;
+  padding-right: 0;
   }
 }

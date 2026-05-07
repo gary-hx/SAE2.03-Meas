@@ -13,3 +13,11 @@
 .category__section-movies {
   grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
 }
+
+
+@media (max-width: 768px) {
+  .category__section {
+    padding: 0;
+  }
+
+}

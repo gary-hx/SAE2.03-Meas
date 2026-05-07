@@ -1,24 +1,27 @@
+<div class="moviedetail__container">
+  <!-- Affiche seule à gauche -->
+  <div class="moviedetail__left">
+    <img src="{{image}}" alt="{{name}}" class="moviedetail__poster" />
+  </div>
 
-    <div class="moviedetail__container">
-      <!-- Affiche seule à gauche -->
-      <div class="moviedetail__left">
-        <img src="{{image}}" alt="{{name}}" class="moviedetail__poster">
-      </div>
-      
-      <!-- Données à droite -->
-      <div class="detail__right">
-        <h2 class="moviedetail__title">{{name}}</h2>
-        <div class="moviedetail__info">
-          <p class="moviedetail__description">{{description}}</p>
-          <p class="moviedetail__meta"><strong>Âge minimum:</strong> {{min_age}} ans</p>
-          <p class="moviedetail__meta"><strong>Réalisateur:</strong> {{director}}</p>
-          <p class="moviedetail__meta"><strong>Année:</strong> {{year}}</p>
-          <p class="moviedetail__meta"><strong>Durée:</strong> {{length}} min</p>
-          <p class="moviedetail__meta"><strong>Catégorie:</strong> {{category}}</p>
-        </div>
-        <div class="moviedetail__trailer">
-          <h3>Trailer :</h3>
-          <iframe class="movie__trailer" src="{{trailer}}" allowfullscreen></iframe>
-        </div>
-      </div>
+  <!-- Données à droite -->
+  <div class="detail__right">
+    <h2 class="moviedetail__title">{{name}}</h2>
+    <div class="moviedetail__info">
+      <p class="moviedetail__description">{{description}}</p>
+      <p class="moviedetail__meta">
+        <strong>Âge minimum:</strong> {{min_age}} ans
+      </p>
+      <p class="moviedetail__meta">
+        <strong>Réalisateur:</strong> {{director}}
+      </p>
+      <p class="moviedetail__meta"><strong>Année:</strong> {{year}}</p>
+      <p class="moviedetail__meta"><strong>Durée:</strong> {{length}} min</p>
+      <p class="moviedetail__meta"><strong>Catégorie:</strong> {{category}}</p>
     </div>
+    <div class="moviedetail__trailer">
+      <h3>Trailer :</h3>
+      <iframe class="movie__trailer" src="{{trailer}}" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>

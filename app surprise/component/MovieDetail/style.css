@@ -1,33 +1,26 @@
 .moviedetail__container {
   display: flex;
-  gap: 40px;
-  padding: 40px;
-  max-width: 1300px;
+  gap: 2.5rem;
+  padding: 2.5rem;
+  max-width: 81.25rem;
   margin: 0 auto;
   justify-content: center;
   align-content: center;
   overflow-x: hidden;
   flex-direction: column;
+  }
 
   .moviedetail__left {
     flex-shrink: 0;
   }
 
   .moviedetail__poster {
-    width: 520px;
-    height: 710px;
+    width: 32.5rem;
+    height: 44.375rem;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     display: block;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  }
-
-  .moviedetail__right {
-    flex: 1;
-    color: var(--color-white);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
   }
 
   .moviedetail__title {
@@ -42,7 +35,7 @@
     display: flex;
     color: var(--color-black);
     flex-direction: column;
-    gap: 12px;
+    gap: 0.75rem;
   }
 
   .moviedetail__description {
@@ -63,33 +56,54 @@
   }
 
   .moviedetail__trailer {
-    margin-top: 20px;
+    margin-top: 1.25rem;
   }
 
   .moviedetail__trailer h3 {
     font-size: 1.3rem;
     color: var(--color-black);
     font-family: var(--ff-host);
-    margin: 0 0 15px 0;
+    margin: 0 0 0.9375rem 0;
   }
 
   .moviedetail__trailer iframe {
-    width: 700px;
-    height: 415px;
+    width: 43.75rem;
+    height: 25.9375rem;
     border: none;
     border-radius: 8px;
   }
 
-  @media (max-width: 768px) {
+ 
+ @media (max-width: 768px) {
     .moviedetail__container {
       flex-direction: column;
-      padding: 20px;
-      gap: 20px;
+      padding: 1.25rem;
+      gap: 1.25rem;
     }
 
     .moviedetail__poster {
       width: 100%;
       height: auto;
+    }
+    
+    .moviedetail__poster {
+      width: 18.75rem;
+      height: auto;
+    }
+
+    .moviedetail__title {
+    font-size: 1.75rem;
+  }
+
+    .moviedetail__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+  }
+
+    .moviedetail__trailer iframe {
+    width: 20.625rem;
+    height: 12.5rem;
     }
 
     .moviedetail__trailer iframe {
@@ -97,4 +111,3 @@
       height: auto;
     }
   }
-}
