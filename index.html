@@ -1,81 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="html" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAE2.03</title>
+    <link rel="stylesheet" href=".." />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAE2.03</title>
-  <link rel="stylesheet" href=".." />
-</head>
+  <body class="index">
+    <h1 class="title">SAE 2.03</h1>
 
-<body class="index">
+    <div class="nav">
+      <a href="admin/index.html" class="landing__btn">Admin</a>
+      <a href="app/index.html" class="landing__btn">Application</a>
+      <a href="rapport.html" class="landing__btn">Go access</a>
+      <a href="admin-surprise/index.html" class="landing__btn"
+        >Admin surprise</a
+      >
+      <a href="app-surprise/index.html" class="landing__btn"
+        >Application surprise</a
+      >
+    </div>
+  </body>
 
-  <h1 class="title">SAE 2.03</h1>
+  <style>
+    .html {
+      height: 100%;
+    }
 
-  <div class="nav">
+    .title {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      margin-top: 0;
+    }
 
-  <a href="admin/index.html" class="landing__btn">Admin</a>
-  <a href="app/index.html" class="landing__btn">Application</a>
-  <a href="rapport.html" class="landing__btn">Go access</a>
-  <a href="admin surprise/index.html" class="landing__btn">Admin surprise</a>
-  <a href="app surprise/index.html" class="landing__btn">Application surprise</a>
-
-</div>
-
-</body>
-
-<style>
-
-.html {
-  height: 100%;
-}
-
-.title {
-  font-size: 4rem;
-  margin-bottom: 2rem;
-  margin-top: 0;
-}
-
-.index {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-}
-
-.landing__btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: brown;
-    margin: 1rem;
-    color: white;
-    font-weight: 900;
-    font-size: 2.5rem;
-    padding: 12px 24px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-
-.nav {
-    display: flex;
-    flex-direction: row;
-}
-
-@media (max-width: 600px) {
-    .nav {
-        flex-direction: column;
+    .index {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
     }
 
     .landing__btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: brown;
+      margin: 1rem;
+      color: white;
+      font-weight: 900;
+      font-size: 2.5rem;
+      padding: 12px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: row;
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+      }
+
+      .landing__btn {
         font-size: 1.5rem;
         padding: 12px 16px;
         text-align: center;
+      }
     }
-}
-</style>
-
+  </style>
 </html>
